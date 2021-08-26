@@ -1,0 +1,19 @@
+<%- include('header'); -%>
+<div class="container-fluid">
+    <div class="col-md-12 pt-1 my-1 bg-dark text-white">
+        <h2>About page</h2>
+        <p>This is some text.</p>
+
+        <ul>
+            <% mascots.forEach(function(mascot) { %>
+              <li>
+                <strong><%= mascot.name %></strong>
+                representing <%= mascot.organization %>,
+                born <%= mascot.birth_year %>
+              </li>
+            <% }); %>
+          </ul>
+          
+    </div>
+</div>
+<%- include('footer'); -%>

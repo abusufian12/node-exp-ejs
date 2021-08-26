@@ -1,0 +1,39 @@
+<%- include('../header'); -%>
+<div class="container-fluid">
+    <div class="col-md-12 pt-1 my-1 bg-dark text-white">
+        
+        <!-- head option -->
+        <div class="row">
+          <div class="col-md-8">
+            <h2>Users List</h2>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-success float-right" onclick="location.href='users/add-user'"><i class='fa fa-plus'></i> Add User</button>
+          </div>
+        </div>
+        
+        <table class="table table-bordered" style="color: white;">
+          <tr>
+              <th>No</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th width="280px">Action</th>
+          </tr>
+          <% data.filter(function(element) { %>
+          <tr>
+              <td><%= element.id %></td>
+              <td><strong><%= element.name %></strong></td>
+              <td><%= element.email %></td>
+              <td>
+                <button class="btn btn-info" onclick="location.href='users/view-user'"><i class='fa fa-eye'></i> </button>
+                <a class="btn btn-info" href=""><i class='fa fa-lock'></i></a>    
+                <a class="btn btn-primary" href=""><i class='fa fa-edit'></i></a>   
+                <button type="submit" class="btn btn-danger"><i class='fa fa-remove'></i></button>
+              </td>
+          </tr>
+          <% }); %>
+      </table>
+
+    </div>
+</div>
+<%- include('../footer'); -%>
