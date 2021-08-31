@@ -1,0 +1,23 @@
+<%- include('../header'); -%>
+<div class="container-fluid">
+    <div class="col-md-12 pt-1 my-1 bg-dark text-white">
+        
+        <!-- head option -->
+        <div class="row">
+          <div class="col-md-8">
+            <h2>Show User</h2>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-success float-right" onclick="location.href='/users'"><i class='fa fa-list'></i> Users</button>
+          </div>
+        </div>
+        <div>
+            <h4>Name: <%= data.name %></h4>
+            <p>Email: <%= data.email %></p>
+            <p>Address: <%= data.address %></p>
+        </div>
+        
+
+    </div>
+</div>
+<%- include('../footer'); -%>

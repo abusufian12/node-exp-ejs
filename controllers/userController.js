@@ -116,9 +116,12 @@ module.exports = {
             .catch(error => serverError(res, error))
     },
     showUser(req, res){
-        User.findOne({ email })
+        //console.log(req.params.id);
+        let id = req.params.id;
+        User.findOne({'_id': id })
             .then(user => {
-                res.render('user/view-user', { data: user});
+                console.log(user);
+                res.render('user/show-user', { data: user});
             })
     },
     addUser(req, res){
@@ -126,6 +129,24 @@ module.exports = {
         hobbies:['playing football', 'playing chess', 'cycling']}
     
         res.render('user/add-user', {data:data});
+    },
+    editUser(req, res){
+        var data = {name:'Akashdeep',
+        hobbies:['playing football', 'playing chess', 'cycling']}
+    
+        res.render('user/edit-user', {data:data});
+    },
+    updateUser(req, res){
+        var data = {name:'Akashdeep',
+        hobbies:['playing football', 'playing chess', 'cycling']}
+    
+        res.render('user/view-user', {data:data});
+    },
+    deleteUser(req, res){
+        var data = {name:'Akashdeep',
+        hobbies:['playing football', 'playing chess', 'cycling']}
+    
+        res.render('user/view-user', {data:data});
     }
 
     

@@ -24,11 +24,15 @@
               <td><%= element.id %></td>
               <td><strong><%= element.name %></strong></td>
               <td><%= element.email %></td>
+
               <td>
-                <button class="btn btn-info" onclick="location.href='users/view-user'"><i class='fa fa-eye'></i> </button>
-                <a class="btn btn-info" href=""><i class='fa fa-lock'></i></a>    
-                <a class="btn btn-primary" href=""><i class='fa fa-edit'></i></a>   
-                <button type="submit" class="btn btn-danger"><i class='fa fa-remove'></i></button>
+                <a class="btn btn-info" href="/users/view/<%= element.id %>"><i class='fa fa-eye'></i></a>    
+                <a class="btn btn-primary" href="/users/edit/<%= element.id %>"><i class='fa fa-edit'></i></a>
+                <form class="d-inline" action="/users/delete" method="post">
+                  <input type="hidden" name="id" value="<%= element.id %>">
+                  <button type="submit" name="delete" value="delete" class="btn btn-danger"><i class='fa fa-remove'></i></button>
+                </form>
+                <a class="btn btn-info" href=""><i class='fa fa-lock'></i></a>
               </td>
           </tr>
           <% }); %>

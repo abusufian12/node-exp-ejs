@@ -6,7 +6,7 @@ const path = require('path');
 // const bodyParser = require('body-parser')
 // app.use(bodyParser.json())
 
-const {addUser, register, allUser} = require('../controllers/userController')
+const {addUser, register, allUser, showUser, editUser, deleteUser} = require('../controllers/userController')
 
 app.set('views', './views');
 // Set EJS as templating engine
@@ -26,7 +26,9 @@ app.use( express.static( "public" ) );
 // });
 app.get("/users", allUser);
 app.get("/users/add-user", addUser); 
-app.get("/users/view-user", allUser); 
+app.get("/users/view/:id", showUser); 
+app.get("/users/edit", editUser); 
+app.post("/users/delete", deleteUser); 
 
 // app.use(express.json());
 app.post("/users/register", register); 
